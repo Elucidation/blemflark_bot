@@ -1,3 +1,9 @@
+# Do not track config file with username/password
+praw.ini
+
+# vi swp files
+*.swp
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
