@@ -1,5 +1,5 @@
 # BlemflarkBot
-[/u/BlemflarkBot](https://www.reddit.com/user/BlemflarkBot/) is a [Reddit](http://www.reddit.com) Bot whose sole purpose is to listen on [/r/rickandmorty](https://www.reddit.com/r/rickandmorty/) subreddit and provide currency conversions from Schmeckles to USD.
+[/u/BlemflarkBot](https://www.reddit.com/user/BlemflarkBot/) is a [Reddit](http://www.reddit.com) Bot whose sole purpose is to listen on [/r/rickandmorty](https://www.reddit.com/r/rickandmorty/) subreddit and provide currency conversions from Blemflarks to USD.
 
 According to the season 3 premier of Rick and Morty, [1 Blemflark is worth $0](https://www.reddit.com/r/rickandmorty/comments/62ygal/the_value_of_the_blemflark/).
 
