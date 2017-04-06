@@ -60,6 +60,29 @@ def startStream(args):
       logMessage(comment,"[SKIP]") # Skip since replied to already
     
 
+def processComment(args):
+  """Process individual comment, dry run applies as needed"""
+  reddit = praw.Reddit('BB') # client credentials set up in local praw.ini file
+  comment = reddit.comment(args.id) # Use specific comment
+  try:
+    search_result = searchForBlemflarks(comment.body)
+    if search_result:
+      print('Found blemflarks, generating response')
+      # Generate response
+      response = generateResponseMessage(search_result)
+      if not args.dry:
+        logMessage(comment,"[REPLIED]")
+        comment.reply(response)
+      else:
+        logMessage(comment,"[DRY-RUN-REPLIED]")
+        print('---')
+        print(response)
+        print('---')
+
+  except Exception as e:
+      print("Unable to process comment, probably an incorrect ID:", e)
+
+
 def main(args):
   running = True
   while running:
@@ -87,5 +110,12 @@ if __name__ == '__main__':
   parser = argparse.ArgumentParser()
   parser.add_argument('--dry', help='dry run (don\'t actually submit replies)',
                       action="store_true", default=False)
+  parser.add_argument('--id', help='Process given comment id only')
   args = parser.parse_args()
-  main(args)
+
+  if args.id is not None:
+    # Given specific comment id, process this one only
+    processComment(args)
+  else:
+    # Process stream indefinitely
+    main(args)
