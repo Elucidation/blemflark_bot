@@ -57,7 +57,7 @@ def generateResponseMessage(search_result):
 # Also catches neighboring region around it
 # Ignore numbers > 300 chars on either side of decimal
 # Also requires a question-like statement
-p = re.compile('([^\n\.\,\r\d-]{0,30})(-?[\d|,]{0,300}\.{0,1}\d{1,300} bl?emfl?ark[\w]{0,80})([^\n\.\,\r\d-]{0,30})', re.IGNORECASE)
+p = re.compile('([^\n\.\,\r\d-]{0,30})(-?[\d|,]{0,300}\.{0,1}\d{1,300} bl?emfl?arc?k[\w]{0,80})([^\n\.\,\r\d-]{0,30})', re.IGNORECASE)
 def searchForBlemflarks(body_text):
   if any([x in body_text.lower() for x in ['?', 'how much', 'what is']]):
     return p.search(body_text)
